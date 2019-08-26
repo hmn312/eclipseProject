@@ -4,6 +4,11 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+/**
+ * 学生类
+ * @author y
+ *
+ */
 public class Student {
 	private int sid;
 	private String sname;

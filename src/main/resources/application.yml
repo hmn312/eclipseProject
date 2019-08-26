@@ -1,0 +1,36 @@
+#数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis?serverTimezone=GMT
+    username: root
+    password: root
+#jackson
+  jackson:
+    date-format: yyyy-MM-dd HH:mm
+    time-zone: GMT+8
+
+  mvc:
+  #为了使用return "success",需要配置视图解析器
+    view:
+      prefix: /
+      suffix: .jsp
+     #静态资源 
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/templates/,classpath:/static/,classpath:/META-NF/resources/,classpath:/resources/,classpath:/public/,classpath:/upload
+    
+#整合mybatis
+mybatis:
+  #config-location: mybatis-config.xml 如果保留了这个配置文件可以这样配置
+  type-aliases-package: com.cssl.po
+  #mapper-locations: classpath:com/cssl/mapper/*.xml 也可以用注解扫描接口
+  configuration:
+    auto-mapping-behavior: full
+    use-generated-keys: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#分页合理化配置
+pagehelper:
+  reasonable: true
+  page-size-zero: true
+  pageSizeZero: true
